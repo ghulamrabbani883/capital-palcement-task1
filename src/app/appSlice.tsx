@@ -11,14 +11,12 @@ export const fetchData = createAsyncThunk("users/fetchData", async () => {
 export const updateData: any = createAsyncThunk(
   "users/updateData",
   async (updatedData: any) => {
-    // console.log(updatedData);
     // const { data } = await axios.put(
     //   "http://127.0.0.1:4010/api/79.85731805865184/programs/cupiditate/application",
     //   updatedData
     // );
-    // console.log(data);
     // return data?.data;
-    return updatedData.data
+    return updatedData.data;
   }
 );
 
@@ -28,10 +26,12 @@ export const appSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchData.fulfilled, (state, action) => {
-      return action.payload
+      state = action.payload;
+      return state;
     });
     builder.addCase(updateData.fulfilled, (state, action) => {
-      return action.payload
+      state = action.payload;
+      return state;
     });
   },
 });
