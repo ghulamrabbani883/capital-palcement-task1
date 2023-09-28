@@ -34,6 +34,7 @@ const Dropdown = ({ handleSave, handleDelete, setQuestion, question }: any) => {
   useEffect(() => {
     if (question) {
       setDropdownQuestion(question.question);
+      setEnable(question.other)
     }
   }, [question]);
 

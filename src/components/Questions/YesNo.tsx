@@ -17,9 +17,16 @@ const YesNo = ({
         return { ...prev, id:qId, question: e.target.value };
       });
     }
+    const handleDisqualify = (e:React.ChangeEvent<HTMLInputElement>)=>{
+      setDisQualify(e.target.checked);
+      setQuestion((prev: any) => {
+        return { ...prev, disqualify: e.target.checked };
+      });
+    }
     useEffect(() => {
       if (question) {
         setYesNoQuestion(question.question);
+        setDisQualify(question.disqualify)
       }
     }, [question]);
   return (
@@ -36,7 +43,7 @@ const YesNo = ({
         />
       </div>
       <div className='flex gap-2'>
-        <input name='disqualify' onChange={(e)=>setDisQualify(e.target.checked)} type='checkbox' checked={disQualify} />Disqualfy candidates if the answer is no
+        <input name='disqualify' onChange={handleDisqualify} type='checkbox' checked={disQualify} />Disqualfy candidates if the answer is no
       </div>
       <div className="flex justify-between items-center">
       <div className="flex gap-3 items-center text-red-600 font-medium cursor-pointer" onClick={handleDelete}>

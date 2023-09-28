@@ -41,6 +41,8 @@ const MultipleChoice = ({ handleSave, handleDelete, setQuestion,question }: any)
   useEffect(() => {
     if (question) {
       setMultipleChoiceQuestion(question.question);
+      setEnable(question.other)
+      setMaxChoice(question.maxChoice)
     }
   }, [question]);
   return (
